@@ -11,6 +11,7 @@ pipeline {
                 //sh 'aws s3api put-object-acl --bucket jenkins-demo-mind --key index.html --acl public-read'
                 sh 'aws s3 cp public/error.html s3://jenkins-demo-mind'
                 //sh 'aws s3api put-object-acl --bucket jenkins-demo-mind --key error.html --acl public-read'
+                sh 'aws s3 website s3://jenkins-demo-mind/ --index-document index.html --error-document error.html'
             }
         }
     }
